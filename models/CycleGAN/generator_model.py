@@ -48,3 +48,13 @@ class Generator(nn.Module):
 		)
 
 		self.last = nn.Conv1d(num_features, in_channels, kernel_size=7, stride=1, padding=3, padding_mode='reflect')
+	
+	def forward(self, x):
+		x = self.initial(x)
+		for layer in self.down_blocks:
+			x = layer(x)
+		x = self.residual_blocks(x)
+		for layer in self.up_blocks:
+			x = layer(x)
+
+		return torch.tanh(self.last(x))
