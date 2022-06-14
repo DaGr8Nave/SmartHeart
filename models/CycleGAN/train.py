@@ -2,6 +2,7 @@ import torch
 import sys
 from utils import save_checkpoint, load_checkpoint
 from torchvision import transforms
+from dataset import XYDataset
 from torch.utils.data import DataLoader
 import torch.nn as nn
 import torch.optim as optim
@@ -12,7 +13,7 @@ from generator_model import Generator
 
 def train_fc(disc_X, disc_Y, gen_X, gen_Y, loader, opt_disc, opt_gen, l1, mse, d_scaler, g_scaler):
 	loop = tqdm(loader, leave=True)
-	
+
 def main():
 	disc_X = Discriminator().to(config.DEVICE)
 	disc_Y = Discriminator().to(config.DEVICE)
@@ -45,6 +46,9 @@ def main():
 		)
 	g_scaler = torch.cuda.amp.GradScaler()
 	d_scaler = torch.cuda.amp.GradScaler()
+	dataset = XYDataset(21, 1)
+	loader = DataLoader(
+		)
 	for epoch in range(config.NUM_EPOCHS):
 		train_fn(disc_X, disc_Y, gen_X, gen_Y, loader, opt_disc, opt_gen, L1, mse, d_scaler, g_scaler)
 
