@@ -23,8 +23,8 @@ class XYDataset(Dataset):
 	      			x_list.append(tensor[i])
 	      		if cnt1 <= 1000:
 	      			y_list.append(tensor[i])	
-	    x_ten = torch.vstack((x_list))
-	    y_ten = torch.vstack((y_list))
+	    	x_ten = torch.vstack((x_list))
+	    	y_ten = torch.vstack((y_list))
 		self.x_ten = x_ten
 		self.y_ten = y_ten
 
