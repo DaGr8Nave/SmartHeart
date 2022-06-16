@@ -58,8 +58,8 @@ def train_fn(disc_X, disc_Y, gen_X, gen_Y, loader, opt_disc, opt_gen, l1, mse, d
 			#identity loss
 			identity_X = gen_X(x)
 			identity_Y = gen_Y(y)
-			identity_X_loss = l1()
-			identity_Y_loss = l1()
+			identity_X_loss = l1(x, identity_X)
+			identity_Y_loss = l1(y, identity_Y)
 			G_loss = (
 				loss_G_X + loss_G_Y + cycle_X_loss * config.LAMBDA_CYCLE + cycle_Y_loss * config.LAMBDA_CYCLE + identity_X_loss * config.LAMBDA_IDENTITY + identity_Y_loss * config.LAMBDA_IDENTITY
 			)
