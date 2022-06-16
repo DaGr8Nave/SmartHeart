@@ -38,7 +38,7 @@ class XYDataset(Dataset):
 			del tlabels
 			
 			j+=1
-		
+		torch.cuda.empty_cache()
 		x_ten = torch.vstack((x_ten))
 		y_ten = torch.vstack((y_ten))
 		self.x_ten = x_ten
