@@ -5,13 +5,14 @@ class XYDataset(Dataset):
 		dir = ['ptbxl', 'ptbxl2', 'georgia', 'china', 'cpsc', 'ptb', 'stpet']
 		val = [200, 200, 200, 149, 251, 0, 0]
 		val21 = [400, 400, 400, 0, 400, 0, 0]
+		root = '../input/cinc2020bandpassf/'
 		x_list = []
 		y_list = []
 		for s in dir:
 			cnt1 = 0
 			cnt21 = 0
-	  		pathD = s + '.pt'
-	  		pathL = s + 'labels.pt'
+	  		pathD = root + s + '.pt'
+	  		pathL = root + s + 'labels.pt'
 			tensor = torch.load(pathD).cuda()
 	  		tlabels = torch.load(pathL).cuda()
 	  		for i in range(len(tensor)):
