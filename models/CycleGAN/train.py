@@ -29,7 +29,7 @@ def train_fn(disc_X, disc_Y, gen_X, gen_Y, loader, opt_disc, opt_gen, l1, mse, d
 
 			fake_x = gen_X(y)
 			D_X_real = disc_X(x)
-			D_X_fake = disc_X(fake_X.detach())
+			D_X_fake = disc_X(fake_x.detach())
 			D_X_real_loss = mse(D_X_real, torch.ones_like(D_X_real))
 			D_X_fake_loss = mse(D_X_fake, torch.zeros_like(D_X_fake))
 			D_X_loss = D_X_real_loss + D_X_fake_loss
