@@ -28,13 +28,13 @@ class XYDataset(Dataset):
 					cnt1 += 1	
 				if int(tlabels[i]) == 21:
 					cnt21 += 1
-				if cnt21 <= val21[j]: 
+				if cnt21 < val21[j]: 
 					x_ten[ind1] = tensor[i].clone()
 					ind1 += 1
-				if cnt1 <= val[j]:
+				if cnt1 < val[j]:
 					y_ten[ind21] = tensor[i].clone()
 					ind21 += 1
-				if cnt1 > val[j] and cnt21 > val21[j]:
+				if cnt1 >= val[j] and cnt21 >= val21[j]:
 					break
 			del tensor
 			del tlabels
