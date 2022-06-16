@@ -7,7 +7,7 @@ class XYDataset(Dataset):
 		val = [200, 200, 200, 149, 251, 0, 0]
 		val21 = [400, 400, 400, 0, 400, 0, 0]
 		root = '../../../../input/cinc2020bandpassf/'
-		i = 0
+		j = 0
 		x_list = []
 		y_list = []
 		for s in dir:
@@ -27,13 +27,13 @@ class XYDataset(Dataset):
 				if int(tlabels[i]) == 21:
 					cnt21 += 1
 				v = tensor[i].cuda()
-				if cnt21 <= val21[i]: 
+				if cnt21 <= val21[j]: 
 					x_list.append(v)
-				if cnt1 <= val[i]:
+				if cnt1 <= val[j]:
 					y_list.append(v)
-				if cnt1 > val[i] and cnt21 > val21[i]:
+				if cnt1 > val[j] and cnt21 > val21[j]:
 					break
-			i+=1
+			j+=1
 		x_ten = torch.vstack((x_list))
 		y_ten = torch.vstack((y_list))
 		self.x_ten = x_ten
