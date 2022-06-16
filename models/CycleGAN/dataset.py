@@ -14,17 +14,19 @@ class XYDataset(Dataset):
 			cnt21 = 0
 			pathD = root + s + '.pt'
 			pathL = root + s + 'labels.pt'
-			tensor = torch.vstack((torch.load(pathD))).cuda()
-			tlabels = torch.vstack((torch.load(pathL))).cuda()
+			tensor = torch.load(pathD).cpu()
+			tlabels = torch.load(pathL).cpu()
+			
 			for i in range(len(tensor)):
 				if int(tlabels[i]) == 1:
 					cnt1 += 1	
 				if int(tlabels[i]) == 21:
 					cnt21 += 1
+				v = tensor[i].cuda()
 				if cnt21 <= 1600: 
-					x_list.append(tensor[i])
+					x_list.append(v)
 				if cnt1 <= 1000:
-					y_list.append(tensor[i])	
+					y_list.append(v)	
 		x_ten = torch.vstack((x_list))
 		y_ten = torch.vstack((y_list))
 		self.x_ten = x_ten
