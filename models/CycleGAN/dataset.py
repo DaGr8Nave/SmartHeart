@@ -8,8 +8,9 @@ class XYDataset(Dataset):
 		val21 = [400, 400, 400, 0, 400, 0, 0]
 		root = '../../../../input/cinc2020bandpassf/'
 		j = 0
-		x_ten = []
-		y_ten = []
+		x_ten = torch.zeros((1000,12,7500))
+		y_ten = torch.zeros((1000,12,7500))
+		ind = 0
 		for s in dir:
 			cnt1 = 0
 			cnt21 = 0
@@ -27,17 +28,17 @@ class XYDataset(Dataset):
 				if int(tlabels[i]) == 21:
 					cnt21 += 1
 				if cnt21 <= val21[j]: 
-					x_ten.append(tensor[i].clone().cuda())
+					x_ten[ind] = tensor[i].clone()
+					ind += 1
 				if cnt1 <= val[j]:
-					y_ten.append(tensor[i].clone().cuda())
+					y_ten[ind] = tensor[i].clone()
+					ind += 1
 				if cnt1 > val[j] and cnt21 > val21[j]:
 					break
 			del tensor
 			del tlabels
 			j+=1
 		torch.cuda.empty_cache()
-		x_ten = torch.vstack((x_ten))
-		y_ten = torch.vstack((y_ten))
 		self.x_ten = x_ten
 		self.y_ten = y_ten
 	
