@@ -76,12 +76,12 @@ def main():
 	gen_X = Generator().to(config.DEVICE)
 	gen_Y = Generator().to(config.DEVICE)
 	opt_disc = optim.Adam(
-		list(disc_H.parameters()) + list(disc_Z.parameters()),
+		list(disc_X.parameters()) + list(disc_Y.parameters()),
 		lr=config.LEARNING_RATE,
 		betas=(0.5, 0.999)
 	)
 	opt_gen = optim.Adam(
-		list(gen_Z.parameters()) + list(disc_H.parameters()),
+		list(gen_X.parameters()) + list(disc_Y.parameters()),
 		lr=config.LEARNING_RATE,
 		betas=(0.5, 0.999)
 	)
