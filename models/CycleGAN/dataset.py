@@ -26,17 +26,14 @@ class XYDataset(Dataset):
 					cnt1 += 1	
 				if int(tlabels[i]) == 21:
 					cnt21 += 1
-				v = tensor[i].clone()
 				if cnt21 <= val21[j]: 
-					x_ten.append(v)
+					x_ten.append(tensor[i].clone().cuda())
 				if cnt1 <= val[j]:
-					y_ten.append(v)
+					y_ten.append(tensor[i].clone().cuda())
 				if cnt1 > val[j] and cnt21 > val21[j]:
 					break
-				del v
 			del tensor
 			del tlabels
-			
 			j+=1
 		torch.cuda.empty_cache()
 		x_ten = torch.vstack((x_ten))
