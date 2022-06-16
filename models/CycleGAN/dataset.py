@@ -33,7 +33,10 @@ class XYDataset(Dataset):
 					y_list.append(v)
 				if cnt1 > val[j] and cnt21 > val21[j]:
 					break
+			del tensor
+			del tlabels
 			j+=1
+		
 		x_ten = torch.vstack((x_list))
 		y_ten = torch.vstack((y_list))
 		self.x_ten = x_ten
