@@ -26,7 +26,7 @@ class XYDataset(Dataset):
 					cnt1 += 1	
 				if int(tlabels[i]) == 21:
 					cnt21 += 1
-				v = tensor[i].cuda()
+				v = tensor[i].clone()
 				if cnt21 <= val21[j]: 
 					x_ten.append(v)
 				if cnt1 <= val[j]:
