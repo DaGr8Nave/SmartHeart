@@ -7,6 +7,7 @@ class XYDataset(Dataset):
 		val = [200, 200, 200, 149, 251, 0, 0]
 		val21 = [400, 400, 400, 0, 400, 0, 0]
 		root = '../../../../input/cinc2020bandpassf/'
+		
 		x_list = []
 		y_list = []
 		for s in dir:
@@ -14,6 +15,9 @@ class XYDataset(Dataset):
 			cnt21 = 0
 			pathD = root + s + '.pt'
 			pathL = root + s + 'labels.pt'
+			
+			if s == 'ptbxl2':
+				pathL = root + 'ptbxllabels2.pt'
 			tensor = torch.load(pathD)
 			tlabels = torch.load(pathL)
 			
