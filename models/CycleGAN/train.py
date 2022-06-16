@@ -11,7 +11,7 @@ from tqdm import tqdm
 from discriminator_model import Discriminator
 from generator_model import Generator
 
-def train_fc(disc_X, disc_Y, gen_X, gen_Y, loader, opt_disc, opt_gen, l1, mse, d_scaler, g_scaler):
+def train_fn(disc_X, disc_Y, gen_X, gen_Y, loader, opt_disc, opt_gen, l1, mse, d_scaler, g_scaler):
 	loop = tqdm(loader, leave=True)
 
 	for idx, (x, y) in enumerate(loop):
