@@ -14,8 +14,8 @@ class XYDataset(Dataset):
 			cnt21 = 0
 			pathD = root + s + '.pt'
 			pathL = root + s + 'labels.pt'
-			tensor = torch.load(pathD).cpu()
-			tlabels = torch.load(pathL).cpu()
+			tensor = torch.load(pathD)
+			tlabels = torch.load(pathL)
 			
 			for i in range(len(tensor)):
 				if int(tlabels[i]) == 1:
