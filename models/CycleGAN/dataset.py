@@ -6,7 +6,7 @@ class XYDataset(Dataset):
 		dir = ['ptbxl', 'ptbxl2', 'georgia', 'china', 'cpsc', 'ptb', 'stpet']
 		val = [200, 200, 200, 149, 251, 0, 0]
 		val21 = [400, 400, 400, 0, 400, 0, 0]
-		root = '../input/cinc2020bandpassf/'
+		root = '../../../../input/cinc2020bandpassf/'
 		j = 0
 		x_ten = torch.zeros((1600,12,7500))
 		y_ten = torch.zeros((1000,12,7500))
