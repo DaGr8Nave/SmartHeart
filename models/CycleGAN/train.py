@@ -1,6 +1,6 @@
 import torch
 import sys
-from torch.utils import save_checkpoint, load_checkpoint
+from utils import save_checkpoint, load_checkpoint
 from torchvision import transforms
 from dataset import XYDataset
 from torch.utils.data import DataLoader
