@@ -11,21 +11,21 @@ class XYDataset(Dataset):
 		for s in dir:
 			cnt1 = 0
 			cnt21 = 0
-	  		pathD = root + s + '.pt'
-	  		pathL = root + s + 'labels.pt'
+			pathD = root + s + '.pt'
+			pathL = root + s + 'labels.pt'
 			tensor = torch.load(pathD).cuda()
-	  		tlabels = torch.load(pathL).cuda()
-	  		for i in range(len(tensor)):
-	    		if int(tlabels[i]) == 1:
-	      			cnt1 += 1	
-	      		if int(tlabels[i]) == 21:
-	      			cnt21 += 1
-	      		if cnt21 <= 1600: 
-	      			x_list.append(tensor[i])
-	      		if cnt1 <= 1000:
-	      			y_list.append(tensor[i])	
-	    	x_ten = torch.vstack((x_list))
-	    	y_ten = torch.vstack((y_list))
+			tlabels = torch.load(pathL).cuda()
+			for i in range(len(tensor)):
+				if int(tlabels[i]) == 1:
+					cnt1 += 1	
+				if int(tlabels[i]) == 21:
+					cnt21 += 1
+				if cnt21 <= 1600: 
+					x_list.append(tensor[i])
+				if cnt1 <= 1000:
+					y_list.append(tensor[i])	
+		x_ten = torch.vstack((x_list))
+		y_ten = torch.vstack((y_list))
 		self.x_ten = x_ten
 		self.y_ten = y_ten
 
