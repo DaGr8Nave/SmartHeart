@@ -34,7 +34,7 @@ class Generator(nn.Module):
 		self.down_blocks = nn.ModuleList(
 			[
 				ConvBlock(64, num_features*2, kernel_size=3, stride=2, padding=1),
-				ConvBlock(num features*2, num_features*4, kernel_size=3, stride=2, padding=1),
+				ConvBlock(num_features*2, num_features*4, kernel_size=3, stride=2, padding=1),
 			]
 		)
 		self.residual_blocks = nn.Sequential(
