@@ -27,14 +27,14 @@ class XYDataset(Dataset):
 				if int(tlabels[i]) == 1:
 					cnt1 += 1	
 					if cnt1 < val[j]:
-						print("Ind1:{}".format(ind1))
-						#y_ten[ind1] = tensor[i].clone()
+						#print("Ind1:{}".format(ind1))
+						y_ten[ind1] = tensor[i].clone()
 						ind1 += 1
 				if int(tlabels[i]) == 21:
 					cnt21 += 1
 					if cnt21 < val21[j]: 
-						print("Ind21:{}".format(ind21))                    
-						#x_ten[ind21] = tensor[i].clone()
+						#print("Ind21:{}".format(ind21))                    
+						x_ten[ind21] = tensor[i].clone()
 						ind21 += 1
 				if cnt1 >= val[j] and cnt21 >= val21[j]:
 					break
