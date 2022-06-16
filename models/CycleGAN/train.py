@@ -1,6 +1,6 @@
 import torch
 import sys
-from utils import save_checkpoint, load_checkpoint
+from torch.utils import save_checkpoint, load_checkpoint
 from torchvision import transforms
 from dataset import XYDataset
 from torch.utils.data import DataLoader
@@ -70,7 +70,7 @@ def train_fc(disc_X, disc_Y, gen_X, gen_Y, loader, opt_disc, opt_gen, l1, mse, d
 
 
 def main():
-	
+
 	disc_X = Discriminator().to(config.DEVICE)
 	disc_Y = Discriminator().to(config.DEVICE)
 	gen_X = Generator().to(config.DEVICE)
