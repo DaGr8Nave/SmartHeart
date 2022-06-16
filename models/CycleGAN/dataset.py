@@ -31,7 +31,7 @@ class XYDataset(Dataset):
 					x_list.append(v)
 				if cnt1 <= val[i]:
 					y_list.append(v)
-				if cnt > val[i] and cnt21 > val21[i]:
+				if cnt1 > val[i] and cnt21 > val21[i]:
 					break
 			i+=1
 		x_ten = torch.vstack((x_list))
