@@ -6,7 +6,7 @@ class XYDataset(Dataset):
 		dir = ['ptbxl', 'ptbxl2', 'georgia', 'china', 'cpsc', 'ptb', 'stpet']
 		val = [200, 200, 200, 149, 251, 0, 0]
 		val21 = [400, 400, 400, 0, 400, 0, 0]
-		root = '../../../../input/cinc2020bandpassf/'
+		root = '../input/cinc2020bandpassf/'
 		j = 0
 		x_ten = torch.zeros((1600,12,7500))
 		y_ten = torch.zeros((1000,12,7500))
@@ -26,14 +26,16 @@ class XYDataset(Dataset):
 			for i in range(len(tensor)):
 				if int(tlabels[i]) == 1:
 					cnt1 += 1	
+					if cnt1 < val[j]:
+						print("Ind1:{}".format(ind1))
+						#y_ten[ind1] = tensor[i].clone()
+						ind1 += 1
 				if int(tlabels[i]) == 21:
 					cnt21 += 1
-				if cnt21 < val21[j]: 
-					x_ten[ind21] = tensor[i].clone()
-					ind21 += 1
-				if cnt1 < val[j]:
-					y_ten[ind1] = tensor[i].clone()
-					ind1 += 1
+					if cnt21 < val21[j]: 
+						print("Ind21:{}".format(ind21))                    
+						#x_ten[ind21] = tensor[i].clone()
+						ind21 += 1
 				if cnt1 >= val[j] and cnt21 >= val21[j]:
 					break
 			del tensor
@@ -55,3 +57,4 @@ class XYDataset(Dataset):
 		y = self.y_ten[index % self.y_len]
 
 		return (x,y)
+dataset = XYDataset(21, 1)
