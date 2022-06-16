@@ -14,8 +14,8 @@ class XYDataset(Dataset):
 			cnt21 = 0
 			pathD = root + s + '.pt'
 			pathL = root + s + 'labels.pt'
-			tensor = torch.vstack(torch.load(pathD)).cuda()
-			tlabels = torch.vstack(torch.load(pathL)).cuda()
+			tensor = torch.vstack((torch.load(pathD))).cuda()
+			tlabels = torch.vstack((torch.load(pathL))).cuda()
 			for i in range(len(tensor)):
 				if int(tlabels[i]) == 1:
 					cnt1 += 1	
