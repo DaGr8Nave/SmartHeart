@@ -15,4 +15,4 @@ Pingry Independent Research Team Project for analyzing ECG with CNN
 # Project Details/Correspondence 
 - Started by Evan Wen and JP Salvatore
 - You can reach out to ewen2023@pingry.org or jsalvatore2023@pingry.org
-- Mentored by Dr. Jolly 
+- Mentored by [Dr. Jolly](https://scholar.google.com/citations?user=qwY2ftYAAAAJ&hl=en&oi=ao) 
